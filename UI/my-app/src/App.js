@@ -8,8 +8,8 @@ function App() {
   return (
     <Router>
       <div className="App Container">
-        <h3 className="d-flex justify-content-center m-3">React JS Frontend</h3>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    
+        <nav className="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
           <ul className="navbar-nav">
             <li className="nav-item m-1">
               <NavLink to="/home" className="btn btn-light btn-outline-primary">
