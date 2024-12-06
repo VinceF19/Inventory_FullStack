@@ -115,11 +115,11 @@ export const Item = () => {
   };
 
   return (
-    <div>
-      <h3>Item page</h3>
+    <div className="body">
+      <h3 className="text-center my-4">Inventory Page</h3>
       <button
         type="button"
-        className="btn btn-primary m-2 float-start"
+        className="btn justify-content-center m-2 float-start"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
         onClick={addClick}

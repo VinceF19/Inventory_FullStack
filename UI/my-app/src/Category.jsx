@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { variables } from "./Variables.js";
+import './Category.css';
 
 export const Category = () => {
   const [categories, setCategories] = useState([]);
@@ -88,11 +89,11 @@ export const Category = () => {
   };
 
   return (
-    <div>
-      <h3>Category</h3>
+    <div className="bodys">
+      <h3 className="text-center my-4">Category</h3>
       <button
         type="button"
-        className="btn btn-primary m-2 float-start"
+        className="btn m-2 float-start"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
         onClick={addClick}
@@ -107,7 +108,7 @@ export const Category = () => {
             <th>Options</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="bodys">
           {categories.map((category) => (
             <tr key={category.CategoryId}>
               <td>{category.CategoryId}</td>

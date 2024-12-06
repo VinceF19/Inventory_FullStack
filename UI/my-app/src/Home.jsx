@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { variables } from "./Variables.js";
+import './Home.css'; // Don't forget to import the CSS file
+
 
 export const Home = () => {
   const [items, setItems] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   // Fetch the list of items
   useEffect(() => {
@@ -58,35 +61,67 @@ export const Home = () => {
     }
   };
 
+  // Filter items based on search query
+  const filteredItems = items.filter((item) =>
+    item.ItemName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    item.ItemDescription.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
-    <div style={{ padding: "20px" }}>
-      <h3 className="my-4">Shop</h3>
-      <div className="row">
-        {items.map((item) => (
-          <div key={item.ItemId} className="col-md-4 mb-4">
-            <div className="card">
-              <img
-                src="https://via.placeholder.com/300x200" // Placeholder for image
-                alt={item.ItemName}
-                className="card-img-top"
-              />
-              <div className="card-body">
-                <h5 className="card-title">{item.ItemName}</h5>
-                <p className="card-text">{item.ItemDescription}</p>
-                <p className="card-text">
-                  <strong>${item.ItemPrice}</strong>
-                </p>
-                <p className="card-text">Stock: {item.ItemStock}</p>
-                <button
-                  className="btn btn-primary"
-                  onClick={() => handleBuyNow(item)}
-                >
-                  Buy Now
-                </button>
+    <div
+      className="container-fluid"
+      
+    >
+      <div className="container">
+        <h3 className="text-center my-4">SHOP</h3>
+
+        {/* Search Bar */}
+        <div className="mb-4 d-flex justify-content-center">
+          <input
+            type="text"
+            className="form-control w-50"
+            placeholder="Search for products..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+           
+          />
+        </div>
+
+        <div className="row">
+          {filteredItems.length > 0 ? (
+            filteredItems.map((item) => (
+              <div key={item.ItemId} className="col-md-4 mb-4">
+                <div className="card shadow-sm border-light rounded" style={{ height: "400px" }}>
+                  <img
+                    src={item.ItemImage}
+                    alt={item.ItemName}
+                    className="card-img-top rounded-top"
+                  />
+                  <div className="card-body d-flex flex-column" style={{ overflow: "hidden" }}>
+                    <h5 className="card-title text-truncate">{item.ItemName}</h5>
+                    <p className="card-text text-muted text-truncate">{item.ItemDescription}</p>
+                    <div className="d-flex justify-content-between align-items-center mt-auto">
+                      <p className="card-text mb-0">
+                        <strong>₱{item.ItemPrice}</strong>
+                      </p>
+                      <p className="card-text mb-0">
+                        <small className="text-muted">Stocks: {item.ItemStock}</small>
+                      </p>
+                    </div>
+                    <button
+                      className="btn btn-buy-now"
+                      onClick={() => handleBuyNow(item)}
+                    >
+                      Buy Now
+                    </button>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        ))}
+            ))
+          ) : (
+            <p className="text-center w-100">No items found.</p>
+          )}
+        </div>
       </div>
     </div>
   );

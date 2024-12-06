@@ -7,22 +7,21 @@ import { BrowserRouter as Router, Route, Routes, NavLink } from "react-router-do
 function App() {
   return (
     <Router>
-      <div className="App Container">
-    
-        <nav className="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
+      <div className="App">
+        <nav className="navbar navbar-expand-lg navbar-light justify-content-center">
           <ul className="navbar-nav">
             <li className="nav-item m-1">
-              <NavLink to="/home" className="btn btn-light btn-outline-primary">
+              <NavLink to="/home" className="btn">
                 Home
               </NavLink>
             </li>
             <li className="nav-item m-1">
-              <NavLink to="/category" className="btn btn-light btn-outline-primary">
+              <NavLink to="/category" className="btn">
                 Category
               </NavLink>
             </li>
             <li className="nav-item m-1">
-              <NavLink to="/item" className="btn btn-light btn-outline-primary">
+              <NavLink to="/item" className="btn">
                 Item
               </NavLink>
             </li>

@@ -1,38 +1,54 @@
+/* General App Styles */
 .App {
-  text-align: center;
+  background-color: #9d9da1; /* Light grey background */
+  color: #262626; /* Dark grey text for readability */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Navbar Styles */
+.navbar {
+  background-color: #9d9da1; /* White background for navbar */
+  border-bottom: 1px solid #ddd; /* Light grey border */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar-nav .nav-item .btn {
+  color: #262626; /* Dark grey text for buttons */
+  border: 2px solid #ddd; /* Light grey border for buttons */
+  background-color: #0295db;
+  align-self: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.navbar-nav .nav-item .btn:hover {
+  background-color: #9d9da1; /* Light grey background on hover */
+  color: #333; /* Dark grey text on hover */
 }
 
-.App-link {
-  color: #61dafb;
+.navbar-nav .nav-item .btn-outline-primary {
+  border-color: #ddd; /* Light grey border for outline buttons */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar-nav .nav-item .btn-outline-primary:hover {
+  background-color: #f0f0f0; /* Light grey background on hover */
+  color: #333; /* Dark grey text on hover */
+}
+
+/* Other Customizations */
+.card, .card-body {
+  background-color: #fff; /* White background for cards */
+  color: #333; /* Dark grey text */
+  border: 1px solid #ddd; /* Light grey border for cards */
+}
+
+.card-title, .card-text {
+  color: #262626; /* Dark grey text color for card text */
+}
+
+.btn-warning {
+  background-color: #f0f0f0; /* Light grey background */
+  color: #262626; /* Dark grey text */
+  border: 1px solid #ddd; /* Light grey border */
+}
+
+.btn-warning:hover {
+  background-color: #ddd; /* Slightly darker grey on hover */
+  color: #333; /* Dark grey text */
 }
