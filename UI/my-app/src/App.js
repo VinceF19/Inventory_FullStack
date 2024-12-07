@@ -12,7 +12,7 @@ function App() {
           <ul className="navbar-nav">
             <li className="nav-item m-1">
               <NavLink to="/home" className="btn">
-                Home
+                Shop
               </NavLink>
             </li>
             <li className="nav-item m-1">

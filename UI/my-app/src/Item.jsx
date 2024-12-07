@@ -142,13 +142,13 @@ export const Item = () => {
     <tr key={item.ItemId}>
       <td>
         {item.ItemId}
-        {item.ItemStock < 5 && (
-          <span className="text-danger small ms-1">Low on stock</span>
-        )}
+        
       </td>
       <td>{item.ItemName}</td>
       <td>{item.ItemPrice}</td>
-      <td>{item.ItemStock}</td>
+      <td>{item.ItemStock}{item.ItemStock < 5 && (
+          <span className="text-danger small ms-1">Low on stock</span>
+        )}</td>
       <td>{item.ItemCategory}</td>
       <td>
         <button
