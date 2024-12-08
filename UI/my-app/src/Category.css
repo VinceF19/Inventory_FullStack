@@ -1,36 +1,81 @@
-.btn{
-    background-color: #0295db;
-    align-content: center;
+/* Button Style */
+.btn {
+  background-color: #0295db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
 }
+
+.btn:hover {
+  background-color: #027bb5;
+  transform: translateY(-2px);
+}
+
+/* Table Header and Footer */
 thead,
 tfoot {
   background-color: #2c5e77;
   color: #fff;
 }
 
+/* Table Body */
 tbody {
   background-color: #e4f0f5;
 }
 
+/* Table Style */
 table {
+  width: 100%;
   border-collapse: collapse;
-  border: 2px solid rgb(140 140 140);
-  font-family: sans-serif;
-  font-size: 0.8rem;
-  letter-spacing: 1px;
+  border: 2px solid #8c8c8c;
+  font-family: 'Arial', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  margin: 20px 0;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
+/* Table Caption */
 caption {
   caption-side: bottom;
   padding: 10px;
+  font-size: 0.9rem;
+  color: #666;
 }
 
+/* Table Cells */
 th,
 td {
-  border: 1px solid rgb(160 160 160);
-  padding: 8px 10px;
+  border: 1px solid #a0a0a0;
+  padding: 12px 15px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
 }
 
 td {
-  text-align: center;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Responsive Table */
+@media (max-width: 767px) {
+  table {
+    font-size: 0.8rem;
+  }
+
+  .btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
 }
