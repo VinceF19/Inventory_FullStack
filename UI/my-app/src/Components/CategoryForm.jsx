@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
 const CategoryForm = ({
   modalTitle,
   categoryName,
   setCategoryName,
-  handleCreateOrUpdate,
+  handleCreateOrUpdate
 }) => {
   return (
     <div className="modal fade" id="exampleModal" tabIndex="-1" aria-hidden="true">

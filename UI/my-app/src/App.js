@@ -1,7 +1,7 @@
 import './App.css';
-import { Home } from './Home';
-import { Category } from './Category';
+import{ Home } from './Home';
 import { Item } from './Item';
+import { Category } from './Category'; // Correct import for a default export
 import { BrowserRouter as Router, Route, Routes, NavLink } from "react-router-dom";
 
 function App() {
@@ -28,7 +28,6 @@ function App() {
           </ul>
         </nav>
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/category" element={<Category />} />
           <Route path="/item" element={<Item />} />

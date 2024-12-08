@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { variables } from "./Variables.js";
-import CategoryForm from "./CategoryForm";
+import CategoryForm from "./Components/CategoryForm";
 import "./Category.css";
 
 export const Category = () => {

@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { variables } from "./Variables.js";
-import ItemCard from "./ItemCard";
-import SearchBar from "./SearchBar";
-import "./Home.css"; // Ensure you include your styling
+import './Home.css'; // Don't forget to import the CSS file
+import SearchBar from './Components/SearchBar'; // Import SearchBar
+import ItemCard from './Components/ItemCard'; // Import ItemCard
 
 export const Home = () => {
   const [items, setItems] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
+  // Fetch the list of items
   useEffect(() => {
     fetch(variables.API_URL + "app/item")
       .then((response) => response.json())
@@ -34,6 +35,7 @@ export const Home = () => {
         return;
       }
 
+      // Update stock locally
       const updatedItems = items.map((i) =>
         i.ItemId === item.ItemId
           ? { ...i, ItemStock: i.ItemStock - quantityNum }
@@ -41,12 +43,16 @@ export const Home = () => {
       );
       setItems(updatedItems);
 
+      // Send the update to the backend
       const updatedItem = { ...item, ItemStock: item.ItemStock - quantityNum };
       fetch(`${variables.API_URL}app/item/${item.ItemId}`, {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(updatedItem),
       })
+        .then((response) => response.json())
         .then(() => {
           alert("Purchase successful!");
         })
@@ -56,6 +62,7 @@ export const Home = () => {
     }
   };
 
+  // Filter items based on search query
   const filteredItems = items.filter((item) =>
     item.ItemName.toLowerCase().includes(searchQuery.toLowerCase()) ||
     item.ItemDescription.toLowerCase().includes(searchQuery.toLowerCase())
@@ -65,7 +72,10 @@ export const Home = () => {
     <div className="container-fluid">
       <div className="container">
         <h3 className="text-center my-4">SHOP</h3>
+
+        {/* Search Bar Component */}
         <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+
         <div className="row">
           {filteredItems.length > 0 ? (
             filteredItems.map((item) => (
